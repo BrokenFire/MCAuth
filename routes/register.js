@@ -3,7 +3,7 @@ var router = express.Router();
 
 const uuidV4 = require('uuid/v4');
 const md5 = require('md5');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt-nodejs');
 const database = require('../database');
 
 const saltRounds = 10;
@@ -102,7 +102,7 @@ function generateToken(){
 
 
 function createUser(username, password){
-    let hash = bcrypt.hashSync(password, saltRounds);
+    let hash = bcrypt.hashSync(password);
 
     let user = new User(username, hash, generateToken(), generateToken(), generateToken());
     user.save();

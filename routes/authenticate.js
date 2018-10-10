@@ -3,7 +3,7 @@ var router = express.Router();
 const uuidV4 = require('uuid/v4');
 const md5 = require('md5');
 const database = require('../database');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt-nodejs');
 
 
 
